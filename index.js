@@ -7,6 +7,16 @@ initalizeDatabase();
 
 app.use(express.json())
 
+
+const corsOptions = {
+  origin: "*",
+  credentials: true,
+  optionSuccessStatus: 200,
+};
+
+app.use(cors(corsOptions));
+
+
 const newMovie = {
   title: "New Movie",
   releaseYear: 2023,
@@ -210,10 +220,4 @@ app.listen(PORT,()=>{
 })
 
 
-const corsOptions = {
-  origin: "*",
-  credentials: true,
-  optionSuccessStatus: 200,
-};
 
-app.use(cors(corsOptions));
