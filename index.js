@@ -6,8 +6,6 @@ const app = express();
 initalizeDatabase();
 
 app.use(express.json())
-
-
 const corsOptions = {
   origin: "*",
   credentials: true,
@@ -16,21 +14,6 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
-
-const newMovie = {
-  title: "New Movie",
-  releaseYear: 2023,
-  genre: ["Drama"],
-  director: "Aditya ROy Chopra",
-  actors: ["Actor 1", "Actor2"],
-  language: "Hindi",
-  country: "India",
-  rating: 6.1,
-  plot: "A young man and woman fall in love on a Australia trip.",
-  awards: "IFA Filmfare Awards",
-  posterUrl: "https://example.com/new-poster1.jpg",
-  trailerUrl: "https://example.com/new-trailer1.mp4"
-};
 
 
 //Adding to Database
@@ -104,7 +87,7 @@ app.get("/movies", async(req,res)=>{
             res.json(movies)
         }
         else{
-            res.status(401).json({error:"No moveis found"})          
+            res.status(404).json({error:"No movies found"})          
         }
 
     }
